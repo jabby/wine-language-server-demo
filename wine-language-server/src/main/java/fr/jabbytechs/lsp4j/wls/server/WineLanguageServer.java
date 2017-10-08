@@ -19,7 +19,7 @@ public class WineLanguageServer implements LanguageServer {
 	private WorkspaceService workspaceService;
 
 	public WineLanguageServer() {
-		this.textDocumentService = new WineTextDocumentService();
+		this.textDocumentService = new WineTextDocumentService(this);
 		this.workspaceService = new WineWorkspaceService();
 	}
 	
@@ -44,8 +44,6 @@ public class WineLanguageServer implements LanguageServer {
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -59,10 +57,14 @@ public class WineLanguageServer implements LanguageServer {
 	}
 
 	/**
-	 * Methode permettant de donner le proxy représetant le client du language server.
+	 * Methode permettant de donner le proxy reprÃ©sentant le client du language server.
 	 * @param remoteProxy proxy du client
 	 */
-	public void setRemoteProxy(LanguageClient remoteProxy) {
-		this.client = client;
+	public void setRemoteProxy(LanguageClient languageClient) {
+		this.client = languageClient;
+	}
+
+	public LanguageClient getClient() {
+		return client;
 	}
 }

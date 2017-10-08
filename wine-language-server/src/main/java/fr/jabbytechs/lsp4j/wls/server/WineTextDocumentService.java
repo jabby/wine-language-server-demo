@@ -1,6 +1,9 @@
 package fr.jabbytechs.lsp4j.wls.server;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.CodeActionParams;
@@ -30,18 +33,25 @@ import org.eclipse.lsp4j.WorkspaceEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
 import org.eclipse.lsp4j.services.TextDocumentService;
 
+
 public class WineTextDocumentService implements TextDocumentService{
 
+	private Map<String, Object> docs = Collections.synchronizedMap(new HashMap<>());
+	private final WineLanguageServer wineLanguageServer;
+	
+	public WineTextDocumentService(WineLanguageServer wineLanguageServer) {
+		this.wineLanguageServer = wineLanguageServer;
+	}
+	
 	@Override
 	public CompletableFuture<Either<List<CompletionItem>, CompletionList>> completion(
 			TextDocumentPositionParams position) {
-		// TODO Auto-generated method stub
+		// TODO use WineCompletionProcessor and WineCompletionModel
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<CompletionItem> resolveCompletionItem(CompletionItem unresolved) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -89,37 +99,31 @@ public class WineTextDocumentService implements TextDocumentService{
 
 	@Override
 	public CompletableFuture<List<? extends CodeLens>> codeLens(CodeLensParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<CodeLens> resolveCodeLens(CodeLens unresolved) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<List<? extends TextEdit>> formatting(DocumentFormattingParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<List<? extends TextEdit>> rangeFormatting(DocumentRangeFormattingParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<List<? extends TextEdit>> onTypeFormatting(DocumentOnTypeFormattingParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CompletableFuture<WorkspaceEdit> rename(RenameParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -137,14 +141,11 @@ public class WineTextDocumentService implements TextDocumentService{
 
 	@Override
 	public void didClose(DidCloseTextDocumentParams params) {
-		// TODO Auto-generated method stub
-		
+		this.docs.remove(params.getTextDocument().getUri());
 	}
 
 	@Override
 	public void didSave(DidSaveTextDocumentParams params) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
