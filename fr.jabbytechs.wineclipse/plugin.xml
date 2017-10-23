@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="wd"
+            id="fr.jabbytechs.wineclipse"
+            name="Wine Descriptor"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="fr.jabbytechs.wineclipse.WineClipseLanguageServerStreamProvider"
+            id="fr.jabbytechs.wineclipse.server"
+            label="fr.jabbytechs.wineclipse.server">
+      </server>
+      <contentTypeMapping
+            contentType="fr.jabbytechs.wineclipse"
+            id="fr.jabbytechs.wineclipse.server">
+      </contentTypeMapping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="fr.jabbytechs.wineclipse"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+</plugin>
