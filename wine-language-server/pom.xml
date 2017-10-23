@@ -48,7 +48,7 @@
 						<configuration>
 							<archive>
 								<manifest>
-									<mainClass>fr.alpesjug.languageserver.Main</mainClass>
+									<mainClass>fr.jabbytechs.lsp4j.wls.server.WineLanguageServerLauncher</mainClass>
 								</manifest>
 							</archive>
 							<descriptorRefs>
