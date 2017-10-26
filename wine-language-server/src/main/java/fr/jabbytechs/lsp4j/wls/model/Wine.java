@@ -56,4 +56,5 @@ public class Wine {
 	public void setColor(String color) {
 		this.color = color;
 	}
+
 }

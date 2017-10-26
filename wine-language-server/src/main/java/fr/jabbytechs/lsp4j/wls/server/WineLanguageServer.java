@@ -22,18 +22,18 @@ public class WineLanguageServer implements LanguageServer {
 		this.textDocumentService = new WineTextDocumentService(this);
 		this.workspaceService = new WineWorkspaceService();
 	}
-	
+
 	@Override
 	public CompletableFuture<InitializeResult> initialize(InitializeParams params) {
 		final InitializeResult res = new InitializeResult(new ServerCapabilities());
-		res.getCapabilities().setCodeActionProvider(Boolean.TRUE);
+		res.getCapabilities().setCodeActionProvider(Boolean.FALSE);
 		res.getCapabilities().setCompletionProvider(new CompletionOptions());
-		res.getCapabilities().setDefinitionProvider(Boolean.TRUE);
-		res.getCapabilities().setHoverProvider(Boolean.TRUE);
-		res.getCapabilities().setReferencesProvider(Boolean.TRUE);
+		res.getCapabilities().setDefinitionProvider(Boolean.FALSE);
+		res.getCapabilities().setHoverProvider(Boolean.FALSE);
+		res.getCapabilities().setReferencesProvider(Boolean.FALSE);
 		res.getCapabilities().setTextDocumentSync(TextDocumentSyncKind.Full);
-		res.getCapabilities().setDocumentSymbolProvider(Boolean.TRUE);
-		
+		res.getCapabilities().setDocumentSymbolProvider(Boolean.FALSE);
+
 		return CompletableFuture.supplyAsync(() -> res);
 	}
 
@@ -57,8 +57,11 @@ public class WineLanguageServer implements LanguageServer {
 	}
 
 	/**
-	 * Methode permettant de donner le proxy représentant le client du language server.
-	 * @param remoteProxy proxy du client
+	 * Methode permettant de donner le proxy représentant le client du language
+	 * server.
+	 * 
+	 * @param remoteProxy
+	 *            proxy du client
 	 */
 	public void setRemoteProxy(LanguageClient languageClient) {
 		this.client = languageClient;

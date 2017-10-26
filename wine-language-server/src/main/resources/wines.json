@@ -1,7 +1,7 @@
 [
    {
       "designation":"Medoc",
-      "location":[
+      "locations":[
          "Arcins",
          "Arsac",
          "Avensan",
@@ -64,10 +64,41 @@
          "Vensac",
          "Vertheuil"
       ],
-      "ground": ["Graviers", "Argilo-calcaire"],
-      "grapeVarietyByColor": {
+      "grounds": ["Graviers", "Argilo-calcaire"],
+      "grapesVarietyByColor": {
       	"red": ["Merlot", "Cabernet Sauvignon", "Cabernet Franc", "Malbec", "Petit Verdot"]
       },
-      "color": ["red"]      
+      "colors": ["red"]      
+   }, {
+      "designation":"Saint Emilion",
+      "locations":[
+      	"Saint Emilion"
+      ],
+      "grounds": ["Calcaire", "Argilo-calcaire", "Graviers"],
+      "grapesVarietyByColor": {
+      	"red": ["Merlot", "Cabernet Franc"]
+      },
+      "colors": ["red"]      
+   }, {
+      "designation":"Sauternes",
+      "locations":[
+      	 "Barsac", "Bommes", "Fargues", "Preignac", "Sauternes"
+      ],
+      "grounds": ["Calcaire", "Argilo-calcaire", "Graviers"],
+      "grapesVarietyByColor": {
+      	"white": ["Sauvignon", "Sémillon", "Muscadelle"]
+      },
+      "colors": ["red"]      
+   }, {
+      "designation":"Pessac Leognan",
+      "locations":[
+      	  "Cadaujac", "Canéjan", "Gradignan", "Léognan", "Martillac", "Mérignac", "Pessac", "Saint-Médard-d'Eyrans", "Talence", "Villenave-d'Ornon"
+      ],
+      "grounds": ["Graviers"],
+      "grapesVarietyByColor": {
+      	"white": ["Sauvignon", "Sémillon"],
+      	"red": ["Cabernet", "Sauvignon", "Merlot"]
+      },
+      "colors": ["red", "white"]      
    }
 ]

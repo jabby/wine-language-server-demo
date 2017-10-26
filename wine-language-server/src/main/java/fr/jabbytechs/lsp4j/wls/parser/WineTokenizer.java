@@ -103,11 +103,21 @@ public class WineTokenizer {
 			}
 			break;
 
-		// default : { parseStringToken(); this.tokenBuffer.type[this.tokenIndex] =
-		// WineTokenTypes.WINE_STRING_TOKEN; }
+		// default:
+		// parseUnknow();
+		// this.tokenBuffer.type[this.tokenIndex] = WineTokenTypes.WINE_UNKNOW;
 		}
 
 		this.tokenBuffer.length[this.tokenIndex] = this.tokenLength;
+	}
+
+	private void parseUnknow() {
+		while (this.dataBuffer.data[this.dataPosition + 1] != '\r'
+				&& this.dataBuffer.data[this.dataPosition + 1] != '\n'
+				&& this.dataBuffer.data[this.dataPosition + 1] != '\t') {
+			System.out.println(this.dataBuffer.data[this.dataPosition + 1]);
+			this.dataPosition++;
+		}
 	}
 
 	private boolean parseNull() {
