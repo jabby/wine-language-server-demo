@@ -13,16 +13,16 @@ public class WineCompletionProcessorTest {
 
 	@Test
 	public void testProcessForGrounds() throws Exception {
-		WineCompletionProcessor.process(Attribute.GROUNDS, "Medoc").forEach(s -> System.out.println(s));
+		WineCompletionProcessor.process(Attribute.GROUND, "Medoc").forEach(s -> System.out.println(s));
 	}
 
 	@Test
 	public void testProcessForLocations() throws Exception {
-		WineCompletionProcessor.process(Attribute.LOCATIONS, "Medoc").forEach(s -> System.out.println(s));
+		WineCompletionProcessor.process(Attribute.LOCATION, "Medoc").forEach(s -> System.out.println(s));
 	}
 
 	@Test
-	public void testProcessForcolors() throws Exception {
-		WineCompletionProcessor.process(Attribute.COLORS, "Pessac Leognan").forEach(s -> System.out.println(s));
+	public void testProcessForColors() throws Exception {
+		WineCompletionProcessor.process(Attribute.COLOR, "Pessac Leognan").forEach(s -> System.out.println(s));
 	}
 }

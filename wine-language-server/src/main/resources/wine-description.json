@@ -1,0 +1,8 @@
+{
+ "name":"The name of your wine",
+ "designation": "The designation of your wine",
+ "location": "The location where your wine is made.",
+ "ground": "The type of ground.",
+ "color": "The color of your wine",
+ "grapeVariety": "The grape variety for your wine"
+}

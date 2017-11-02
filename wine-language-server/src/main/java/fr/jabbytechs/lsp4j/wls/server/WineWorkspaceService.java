@@ -13,19 +13,16 @@ public class WineWorkspaceService implements WorkspaceService {
 
 	@Override
 	public CompletableFuture<List<? extends SymbolInformation>> symbol(WorkspaceSymbolParams params) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void didChangeConfiguration(DidChangeConfigurationParams params) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void didChangeWatchedFiles(DidChangeWatchedFilesParams params) {
-		// TODO Auto-generated method stub
-		
+
 	}
 }

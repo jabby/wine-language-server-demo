@@ -27,12 +27,13 @@ public class WineLanguageServer implements LanguageServer {
 	public CompletableFuture<InitializeResult> initialize(InitializeParams params) {
 		final InitializeResult res = new InitializeResult(new ServerCapabilities());
 		res.getCapabilities().setCodeActionProvider(Boolean.FALSE);
-		res.getCapabilities().setCompletionProvider(new CompletionOptions());
 		res.getCapabilities().setDefinitionProvider(Boolean.FALSE);
-		res.getCapabilities().setHoverProvider(Boolean.FALSE);
 		res.getCapabilities().setReferencesProvider(Boolean.FALSE);
-		res.getCapabilities().setTextDocumentSync(TextDocumentSyncKind.Full);
 		res.getCapabilities().setDocumentSymbolProvider(Boolean.FALSE);
+
+		res.getCapabilities().setCompletionProvider(new CompletionOptions());
+		res.getCapabilities().setHoverProvider(Boolean.TRUE);
+		res.getCapabilities().setTextDocumentSync(TextDocumentSyncKind.Full);
 
 		return CompletableFuture.supplyAsync(() -> res);
 	}

@@ -52,7 +52,7 @@ public class WineTextDocumentService implements TextDocumentService {
 		WineDocumentModel doc = docs.get(position.getTextDocument().getUri());
 
 		return CompletableFuture.supplyAsync(() -> Either.forLeft(WineCompletionProcessor
-				.process(doc.getAttribute(position), doc.getDesignation(position)).stream().map(word -> {
+				.process(doc.getTypeAttribute(position), doc.getDesignation()).stream().map(word -> {
 					CompletionItem item = new CompletionItem();
 					item.setLabel(word);
 					item.setInsertText(word);
@@ -68,8 +68,14 @@ public class WineTextDocumentService implements TextDocumentService {
 
 	@Override
 	public CompletableFuture<Hover> hover(TextDocumentPositionParams position) {
-		// TODO Auto-generated method stub
-		return null;
+		WineDocumentModel doc = docs.get(position.getTextDocument().getUri());
+
+		return CompletableFuture.supplyAsync(() -> {
+			Hover res = new Hover();
+			res.setContents(WineHoverProcessor.process(doc, position));
+
+			return res;
+		});
 	}
 
 	@Override
